@@ -94,10 +94,8 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	}
 
 	/**
-	 * Create a new AnnotationConfigApplicationContext, scanning for components
-	 * in the given packages, registering bean definitions for those components,
-	 * and automatically refreshing the context.
-	 * @param basePackages the packages to scan for component classes
+	 * 创建新的 AnnotationConfigApplicationContext，扫描给定包中的组件，为这些组件注册 Bean 定义，并自动刷新上下文。
+	 * @param basePackages 要扫描组件类的包
 	 */
 	public AnnotationConfigApplicationContext(String... basePackages) {
 		this();

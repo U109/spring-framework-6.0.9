@@ -1,21 +1,23 @@
 # <img src="framework-docs/src/docs/spring-framework.png" width="80" height="80"> Spring Framework [![Build Status](https://ci.spring.io/api/v1/teams/spring-framework/pipelines/spring-framework-6.0.x/jobs/build/badge)](https://ci.spring.io/teams/spring-framework/pipelines/spring-framework-6.0.x?groups=Build") [![Revved up by Gradle Enterprise](https://img.shields.io/badge/Revved%20up%20by-Gradle%20Enterprise-06A0CE?logo=Gradle&labelColor=02303A)](https://ge.spring.io/scans?search.rootProjectNames=spring)
 
-This is the home of the Spring Framework: the foundation for all [Spring projects](https://spring.io/projects). Collectively the Spring Framework and the family of Spring projects are often referred to simply as "Spring". 
 
-Spring provides everything required beyond the Java programming language for creating enterprise applications for a wide range of scenarios and architectures. Please read the [Overview](https://docs.spring.io/spring/docs/current/spring-framework-reference/overview.html#spring-introduction) section as reference for a more complete introduction.
+这是Spring框架的所在地：所有[Spring项目](https://spring.io/projects)的基础。Spring Framework和Spring项目家族通常被简单地称为“Spring”。
 
-## Code of Conduct
+Spring提供了Java编程语言之外的一切，用于为各种场景和架构创建企业应用程序。请阅读[概述](https://docs.spring.io/spring/docs/current/spring-framework-reference/overview.html#spring-introduction)部分作为参考以获取更完整的介绍。
 
-This project is governed by the [Spring Code of Conduct](CODE_OF_CONDUCT.adoc). By participating, you are expected to uphold this code of conduct. Please report unacceptable behavior to spring-code-of-conduct@pivotal.io.
+## 行为准则
+
+本项目受[Spring行为准则](CODE_OF_CONDUCT.adoc)的约束。通过参与，您应该遵守本行为准则。请向[spring-code-of-conduct@pivotal.io]()报告不可接受的行为。
 
 ## Access to Binaries
 
-For access to artifacts or a distribution zip, see the [Spring Framework Artifacts](https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Artifacts) wiki page.
+要访问工件或发行版zip，请参阅[Spring Framework工件](https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Artifacts) wiki页面。
 
 ## Documentation
 
-The Spring Framework maintains reference documentation ([published](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/) and [source](framework-docs/src/docs/asciidoc)), GitHub [wiki pages](https://github.com/spring-projects/spring-framework/wiki), and an
-[API reference](https://docs.spring.io/spring-framework/docs/current/javadoc-api/). There are also [guides and tutorials](https://spring.io/guides) across Spring projects.
+Spring框架维护参考留档（[已发布](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/)和[源代码](framework-docs/src/docs/asciidoc)）、
+GitHub [wiki页面](https://github.com/spring-projects/spring-framework/wiki)和[API参考](https://docs.spring.io/spring-framework/docs/current/javadoc-api/)。
+还有跨Spring项目的[指南和教程](https://spring.io/guides)。
 
 ## Micro-Benchmarks
 

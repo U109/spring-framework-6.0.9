@@ -8,15 +8,15 @@ import org.springframework.stereotype.Component;
  * @description:
  */
 @Component
-public class BeanObj2 {
+public class TestBean2 {
 
-	public BeanObj2() {
-		System.out.println("调用beanObj2的构造方法");
+	public TestBean2() {
+		System.out.println("调用TestBean2的构造方法");
 	}
 
 	@Override
 	public String toString() {
-		return "BeanObj2{}";
+		return "TestBean2";
 	}
 }
 
