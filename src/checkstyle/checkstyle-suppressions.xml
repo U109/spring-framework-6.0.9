@@ -139,4 +139,6 @@
 	<suppress files="sockjs[\\/]transport[\\/]TransportType" checks="JavadocVariable"/>
 	<suppress files="src[\\/]test[\\/]java[\\/]org[\\/]springframework[\\/]web[\\/]reactive[\\/]protobuf[\\/].*" checks=".*"/>
 
+	<!-- spring-learn -->
+	<suppress files="[\\/]src[\\/]main[\\/]java[\\/]org[\\/]springframework[\\/]learn[\\/]" checks=".*" />
 </suppressions>

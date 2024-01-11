@@ -16,17 +16,17 @@
 
 package org.springframework.aot.generate;
 
+import org.springframework.javapoet.ClassName;
+import org.springframework.javapoet.TypeSpec;
+import org.springframework.lang.Nullable;
+import org.springframework.util.Assert;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
-
-import org.springframework.javapoet.ClassName;
-import org.springframework.javapoet.TypeSpec;
-import org.springframework.lang.Nullable;
-import org.springframework.util.Assert;
 
 /**
  * A managed collection of generated classes.
