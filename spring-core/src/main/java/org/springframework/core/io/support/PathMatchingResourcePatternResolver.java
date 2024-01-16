@@ -319,32 +319,32 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
 	public Resource[] getResources(String locationPattern) throws IOException {
 		Assert.notNull(locationPattern, "Location pattern must not be null");
 		if (locationPattern.startsWith(CLASSPATH_ALL_URL_PREFIX)) {
-			// a class path resource (multiple resources for same name possible)
+			// 类路径资源（可以有多个同名资源）
 			String locationPatternWithoutPrefix = locationPattern.substring(CLASSPATH_ALL_URL_PREFIX.length());
-			// Search the module path first.
+			// 首先搜索模块路径.
 			Set<Resource> resources = findAllModulePathResources(locationPatternWithoutPrefix);
-			// Search the class path next.
+			// 接下来搜索类路径.
 			if (getPathMatcher().isPattern(locationPatternWithoutPrefix)) {
-				// a class path resource pattern
+				// 类路径资源模式
 				Collections.addAll(resources, findPathMatchingResources(locationPattern));
 			}
 			else {
-				// all class path resources with the given name
+				// 具有给定名称的所有类路径资源
 				Collections.addAll(resources, findAllClassPathResources(locationPatternWithoutPrefix));
 			}
 			return resources.toArray(new Resource[0]);
 		}
 		else {
-			// Generally only look for a pattern after a prefix here,
-			// and on Tomcat only after the "*/" separator for its "war:" protocol.
+			// 通常只在此处查找前缀之后的模式,
+			// 在 Tomcat 上，仅在其 “war：” 协议的 “*/” 分隔符之后.
 			int prefixEnd = (locationPattern.startsWith("war:") ? locationPattern.indexOf("*/") + 1 :
 					locationPattern.indexOf(':') + 1);
 			if (getPathMatcher().isPattern(locationPattern.substring(prefixEnd))) {
-				// a file pattern
+				// 文件模式
 				return findPathMatchingResources(locationPattern);
 			}
 			else {
-				// a single resource with the given name
+				// 具有给定名称的单个资源
 				return new Resource[] {getResourceLoader().getResource(locationPattern)};
 			}
 		}
@@ -841,7 +841,7 @@ public class PathMatchingResourcePatternResolver implements ResourcePatternResol
 	protected Set<Resource> findAllModulePathResources(String locationPattern) throws IOException {
 		Set<Resource> result = new LinkedHashSet<>(16);
 
-		// Skip scanning the module path when running in a native image.
+		// 在本机映像中运行时跳过扫描模块路径.
 		if (NativeDetector.inNativeImage()) {
 			return result;
 		}

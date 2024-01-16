@@ -305,23 +305,22 @@ public class ClassPathScanningCandidateComponentProvider implements EnvironmentC
 
 
 	/**
-	 * Scan the class path for candidate components.
-	 * @param basePackage the package to check for annotated classes
-	 * @return a corresponding Set of autodetected bean definitions
+	 * 扫描类路径以查找候选组件.
+	 * @param basePackage 要检查带注释的类的包
+	 * @return 自动检测的相应 Bean 定义集
 	 */
 	public Set<BeanDefinition> findCandidateComponents(String basePackage) {
 		if (this.componentsIndex != null && indexSupportsIncludeFilters()) {
+			//从索引添加候选组件
 			return addCandidateComponentsFromIndex(this.componentsIndex, basePackage);
-		}
-		else {
+		}else {
 			return scanCandidateComponents(basePackage);
 		}
 	}
 
 	/**
-	 * Determine if the index can be used by this instance.
-	 * @return {@code true} if the index is available and the configuration of this
-	 * instance is supported by it, {@code false} otherwise
+	 * 确定此实例是否可以使用索引.
+	 * @return  如果索引可用并且它支持此实例的配置，则为 true，否则为 false
 	 * @since 5.0
 	 */
 	private boolean indexSupportsIncludeFilters() {
@@ -419,13 +418,17 @@ public class ClassPathScanningCandidateComponentProvider implements EnvironmentC
 		try {
 			String packageSearchPath = ResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX +
 					resolveBasePackage(basePackage) + '/' + this.resourcePattern;
+
 			Resource[] resources = getResourcePatternResolver().getResources(packageSearchPath);
+
 			boolean traceEnabled = logger.isTraceEnabled();
 			boolean debugEnabled = logger.isDebugEnabled();
+
 			for (Resource resource : resources) {
 				String filename = resource.getFilename();
 				if (filename != null && filename.contains(ClassUtils.CGLIB_CLASS_SEPARATOR)) {
-					// Ignore CGLIB-generated classes in the classpath
+					// 忽略类路径中 CGLIB 生成的类
+					//在进行组件扫描时，通常我们只关心原始的业务类（即非代理类），因为代理类主要用来处理如方法拦截、AOP等额外逻辑，并不是应用的主要业务逻辑载体。
 					continue;
 				}
 				if (traceEnabled) {
@@ -473,12 +476,10 @@ public class ClassPathScanningCandidateComponentProvider implements EnvironmentC
 
 
 	/**
-	 * Resolve the specified base package into a pattern specification for
-	 * the package search path.
-	 * <p>The default implementation resolves placeholders against system properties,
-	 * and converts a "."-based package path to a "/"-based resource path.
-	 * @param basePackage the base package as specified by the user
-	 * @return the pattern specification to be used for package searching
+	 * 将指定的基础包解析为包搜索路径的模式规范.
+	 * 默认实现根据系统属性解析占位符，并转换“.”基于“/”的资源路径的基于包路径
+	 * @param basePackage 用户指定的基础包
+	 * @return 用于包搜索的模式规范
 	 */
 	protected String resolveBasePackage(String basePackage) {
 		return ClassUtils.convertClassNameToResourcePath(getEnvironment().resolveRequiredPlaceholders(basePackage));
