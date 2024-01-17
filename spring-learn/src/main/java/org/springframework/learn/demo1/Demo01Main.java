@@ -14,9 +14,8 @@ public class Demo01Main {
 		// 指定扫描的包
 		ApplicationContext context = new AnnotationConfigApplicationContext("org.springframework.learn.demo1");
 
-		Object obj1 = context.getBean("testBean1");
-		Object obj2 = context.getBean("testBean2");
-		System.out.println("Bean1 : " +  obj1);
-		System.out.println("Bean2 : " + obj2);
+		for (String beanDefinitionName : context.getBeanDefinitionNames()) {
+			System.out.println(beanDefinitionName);
+		}
 	}
 }
